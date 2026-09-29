@@ -1,0 +1,21 @@
+
+create database Foods;
+
+show databases;
+
+use Foods;
+
+create table Food_items(item_id int,Food_name varchar(20),price float,qty int,total float  );
+
+select * from Food_items;
+
+insert into Food_items values (1001,'Curd Rice',70,2,144.1);
+#method 2
+insert into Food_items(item_id,Food_name,price,qty,total)
+values(1002,'Lemon_Rice',60,4,248.2);
+
+#insert multiple values
+insert into Food_items values(1003,'Sambar_Sadham',80,1,80),
+(1004,'MuttonBiriyani',350,1,350),(1005,'Chicken 65',170,2,344);
+
+select * from Food_items;
