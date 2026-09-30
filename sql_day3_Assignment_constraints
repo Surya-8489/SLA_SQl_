@@ -1,0 +1,13 @@
+create table college(
+College_id int primary key,
+College_name varchar(20) not null,
+std_rollno int not null,
+std_name varchar(20) not null
+);
+
+desc college;
+
+insert into college(college_id,college_name,std_rollno,std_name)values(1001,'Vels',20012,'mani')
+,(1002,'KARE',20013,'T.Ragendran')
+,(1003,'SRM',20014,'mukesh');
+select*from college;
