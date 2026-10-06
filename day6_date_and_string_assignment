@@ -1,0 +1,5 @@
+select substring(concat('Hi' ,trim('Welcome'),upper('Home')),10,4) as Fullstr;
+
+output:
+Fullstr:
+HOME
