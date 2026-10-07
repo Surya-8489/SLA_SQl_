@@ -1,0 +1,51 @@
+#multi row subquery
+select std_name ,subject,mark from studentss where subject in 
+(select subject from studentss where subject in ('tamil','english','maths'));
+output:
+Surya	Tamil	90
+Sanjay	english	98
+maruthu	maths	89
+joker	englih	88
+karthick	tamil	70
+
+  
+#foreign key
+
+create table managers_details(manager_id int primary key,
+manager_name varchar(20),dep varchar(20)
+);
+
+desc managers_details;
+
+create table employes(emp_id int primary key,
+emp_name varchar(20),
+dep varchar(20),
+manager_id int,
+
+foreign key (manager_id) references  managers_details(manager_id)
+);
+desc employes; 
+
+insert into managers_details(manager_id,manager_name,dep)values
+(101,'venkatesh','HR'),(102,'kavi','IT'),(103,'sathish','finance');
+
+select * from managers_details;
+select * from employes;
+insert into employes(emp_id,emp_name,dep,manager_id)values
+(1001,"surya",'IT',102),(1002,'ganesh','finance',103),(1003,'sanjay','HR',101);
+
+select * from managers_details;
+select * from employes;
+
+output:
+manager_id manager_name  dep
+101	     venkatesh	      HR
+102	      kavi	          IT
+103	     sathish	        finance
+
+emp_id  | emp_name |dep   |manager_id
+
+1001	     surya	  IT	    102
+1002	    ganesh	  finance	103
+1003	    sanjay	  HR	    101
+  
