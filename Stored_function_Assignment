@@ -1,0 +1,35 @@
+
+delimiter $$
+create function mark_performance(mark int)
+returns varchar(20)
+deterministic
+begin 
+  
+  declare perf varchar(20);
+  
+  if mark>=50 and mark<60  then
+   set perf = 'Average';
+  elseif mark>=60 and mark<70 then
+   set perf = 'Good';
+  elseif mark>=70 and mark<=80 then
+    set perf='Excellent';
+  elseif mark>80 then
+    set perf='oustanding';
+  else
+    set perf ='fail';
+  end if;
+  return perf;
+   
+end $$  
+delimiter ;
+show function status;
+select mark_performance(82) as mark_perf;
+select mark_performance(45) as mark_perf;
+
+output:
+mark_perf |
+oustanding
+
+mark_perf |
+fail
+
